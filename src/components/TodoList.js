@@ -1,21 +1,16 @@
+// TodoList.js
 import React from 'react';
 
-function TodoList({ todos, handleComplete }) {
+function TodoList({ todos, onComplete }) {
   return (
-    <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+    <ul>
       {todos.map((todo) => (
-        <li
-          key={todo.id}
-          style={{
-            marginBottom: '10px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-          }}
-        >
-          <span>{todo.text}</span>
+        <li key={todo.id} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+          {todo.text}
           {!todo.completed && (
-            <button onClick={() => handleComplete(todo.id)}>Complete</button>
+            <button onClick={() => onComplete(todo.id)}>
+              Complete
+            </button>
           )}
         </li>
       ))}
