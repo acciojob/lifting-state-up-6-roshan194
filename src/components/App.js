@@ -1,6 +1,5 @@
-// App.js
 import React, { useState } from 'react';
-import TodoList from './TodoList'; // Assuming TodoList.js is in the same directory
+import TodoList from './TodoList';
 
 function App() {
   const [todos, setTodos] = useState([
@@ -19,8 +18,7 @@ function App() {
 
   return (
     <div>
-      <h1>Parent Component</h1>
-      <h2>Child Component</h2>
+      <h1>Todo App</h1>
       <TodoList todos={todos} onComplete={handleComplete} />
     </div>
   );
