@@ -1,52 +1,26 @@
-// TodoList.js
-import React from 'react';
+import React from "react";
 
-const TodoList = ({ todos, handleComplete }) => {
+function TodoList({ todos, handleComplete }) {
   return (
-    <div>
-      <h2>Todo List</h2>
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.task}
-            {!todo.completed && (
-              <button onClick={() => handleComplete(todo.id)}>
-                Complete
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id} style={{ marginBottom: 8 }}>
+          <span
+            style={{
+              textDecoration: todo.completed ? "line-through" : "none",
+              marginRight: 10,
+            }}
+          >
+            {todo.text}
+          </span>
+          {!todo.completed && (
+            <button onClick={() => handleComplete(todo.id)}>Complete</button>
+          )}
+          {todo.completed && <span style={{ color: "green" }}>✓ Completed</span>}
+        </li>
+      ))}
+    </ul>
   );
-};
+}
 
 export default TodoList;
-/*
-// TodoList.js
-import React from 'react';
-
-const TodoList = ({ todos, handleComplete }) => {
-  return (
-    <div>
-      <h2>Child Component</h2> 
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            {todo.task}
-            {!todo.completed && (
-              <button
-                onClick={() => handleComplete(todo.id)}
-              >
-                Complete
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default TodoList;
-*/
