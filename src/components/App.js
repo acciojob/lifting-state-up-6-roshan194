@@ -7,12 +7,12 @@ const initialTodos = [
   { id: 3, text: "Build Todo App", completed: false },
 ];
 
-function App() {
+export default function App() {
   const [todos, setTodos] = useState(initialTodos);
 
   const handleComplete = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
+    setTodos((todos) =>
+      todos.map((todo) =>
         todo.id === id ? { ...todo, completed: true } : todo
       )
     );
@@ -20,10 +20,8 @@ function App() {
 
   return (
     <div>
-      <h1>Lifting State Up - Todo List</h1>
+      <h1>Todo App</h1>
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
 }
-
-export default App;
