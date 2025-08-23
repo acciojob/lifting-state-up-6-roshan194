@@ -11,8 +11,8 @@ export default function App() {
   const [todos, setTodos] = useState(initialTodos);
 
   const handleComplete = (id) => {
-    setTodos((todos) =>
-      todos.map((todo) =>
+    setTodos((prev) =>
+      prev.map((todo) =>
         todo.id === id ? { ...todo, completed: true } : todo
       )
     );
