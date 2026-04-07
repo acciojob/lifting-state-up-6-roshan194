@@ -1,18 +1,17 @@
 import React, { useState } from "react";
 import TodoList from "./TodoList";
 
-const initialTodos = [
-  { id: 1, text: "Learn React", completed: false },
-  { id: 2, text: "Read about Lifting State Up", completed: false },
-  { id: 3, text: "Build Todo App", completed: false },
-];
-
-export default function App() {
-  const [todos, setTodos] = useState(initialTodos);
+function App() {
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Buy groceries", completed: false },
+    { id: 2, text: "Read a book", completed: false },
+    { id: 3, text: "Go for a walk", completed: false },
+    { id: 4, text: "Write tests", completed: false },
+  ]);
 
   const handleComplete = (id) => {
-    setTodos((prev) =>
-      prev.map((todo) =>
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) =>
         todo.id === id ? { ...todo, completed: true } : todo
       )
     );
@@ -20,8 +19,10 @@ export default function App() {
 
   return (
     <div>
-      <h1>Todo App</h1>
+      <h1>My Todo List</h1>
       <TodoList todos={todos} handleComplete={handleComplete} />
     </div>
   );
 }
+
+export default App;
