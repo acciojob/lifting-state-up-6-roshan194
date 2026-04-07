@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import TodoList from "./TodoList";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [todos, setTodos] = useState([
     { id: 1, text: "Buy groceries", completed: false },
     { id: 2, text: "Read a book", completed: false },
     { id: 3, text: "Go for a walk", completed: false },
-    { id: 4, text: "Write tests", completed: false },
   ]);
 
   const handleComplete = (id) => {
